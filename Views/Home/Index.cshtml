@@ -1,0 +1,83 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container">
+    <div class="text-center mt-5">
+        <h1 class="display-4">Welcome to YouTube M&V</h1>
+        <p class="lead">Watch, Learn, and Explore Videos</p>
+    </div>
+
+    <div class="featured-videos my-5">
+        <h2 class="text-center">Top Videos</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <a href="https://www.youtube.com/watch?v=q3yYE5GdEHU" class="video-thumbnail">
+                    <iframe src="https://www.youtube.com/embed/q3yYE5GdEHU" frameborder="0" allowfullscreen class="img-fluid"></iframe>
+                    <p class="video-title">Debu-Debu Dosa-Hijjaz</p>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="https://www.youtube.com/watch?v=PiizQilmEtY" class="video-thumbnail">
+                    <iframe src="https://www.youtube.com/embed/PiizQilmEtY" frameborder="0" allowfullscreen class="img-fluid"></iframe>
+                    <p class="video-title">Kau Pemilik Cinta-Hijjaz</p>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="https://www.youtube.com/watch?v=B-86KEWrF5k" class="video-thumbnail">
+                    <iframe src="https://www.youtube.com/embed/B-86KEWrF5k" frameborder="0" allowfullscreen class="img-fluid"></iframe>
+                    <p class="video-title">Fatamorgana-Hijjaz</p>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="https://www.youtube.com/watch?v=7M9iZB79BRc" class="video-thumbnail">
+                    <iframe src="https://www.youtube.com/embed/7M9iZB79BRc" frameborder="0" allowfullscreen class="img-fluid"></iframe>
+                    <p class="video-title">Kepastian-InTeam</p>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="https://www.youtube.com/watch?v=ZnTY6JAWx2Q" class="video-thumbnail">
+                    <iframe src="https://www.youtube.com/embed/ZnTY6JAWx2Q" frameborder="0" allowfullscreen class="img-fluid"></iframe>
+                    <p class="video-title">Segenggam Tabah-InTeam</p>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="https://www.youtube.com/watch?v=Zbw29xPYnas" class="video-thumbnail">
+                    <iframe src="https://www.youtube.com/embed/Zbw29xPYnas" frameborder="0" allowfullscreen class="img-fluid"></iframe>
+                    <p class="video-title">Selimut Kasih-InTeam</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .video-thumbnail {
+        margin: 15px 0;
+        text-align: center;
+        border: 1px solid #ddd; /* Subtle border for elegance */
+        border-radius: 8px; /* Rounded corners */
+        overflow: hidden; /* Ensures the corners are rounded on images */
+        transition: transform 0.2s; /* Smooth scaling on hover */
+        text-decoration: none; /* Remove underline from links */
+        color: inherit; /* Inherit color for the text */
+    }
+
+        .video-thumbnail:hover {
+            transform: scale(1.05); /* Slight zoom effect on hover */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+        }
+
+    .video-title {
+        margin-top: 10px;
+        font-weight: bold;
+        font-size: 1.1rem; /* Slightly larger font size */
+        color: #333; /* Darker color for better readability */
+    }
+
+    iframe {
+        width: 100%; /* Make iframe responsive */
+        height: 200px; /* Set a fixed height for the iframe */
+        border: none; /* Remove border */
+    }
+</style>

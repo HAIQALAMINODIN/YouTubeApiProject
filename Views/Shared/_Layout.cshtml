@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - YouTube M&V</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/YouTubeApiProject.styles.css" asp-append-version="true" />
+
+    <style>
+        body.light-mode {
+            background-color: #f8f9fa; /* Light mode background */
+            color: #000;
+        }
+
+        body.dark-mode {
+            background-color: #121212; /* Dark mode background */
+            color: #fff;
+            transition: background-color 0.3s, color 0.3s; /* Smooth transition for theme switch */
+        }
+
+        header {
+            background: linear-gradient(45deg, #007bff, #0056b3); /* Gradient background */
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem; /* Larger brand text */
+            font-weight: bold; /* Bold brand text */
+        }
+
+        .nav-link {
+            padding: 10px 15px; /* Increased padding for links */
+            color: white; /* Link color */
+        }
+
+            .nav-link:hover {
+                background-color: rgba(255, 255, 255, 0.2); /* Light hover effect */
+                border-radius: 5px; /* Rounded corners for hover effect */
+            }
+
+        .navbar-toggler {
+            border-color: rgba(255, 255, 255, 0.5); /* Toggler border color */
+        }
+
+        .navbar-toggler-icon {
+            background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'white\' height=\'30\' width=\'30\' viewBox=\'0 0 30 30\'%3E%3Cpath stroke=\'white\' stroke-width=\'2\' d=\'M4 7h22M4 15h22m-4 8H4\'/ %3E%3C/svg%3E'); /* Custom color for toggler icon */
+        }
+
+        /* Styling for dark mode button */
+        .dark-mode-btn {
+            background-color: #0056b3;
+            border: none;
+            color: white;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+            .dark-mode-btn:hover {
+                background-color: #007bff;
+            }
+    </style>
+</head>
+<body class="light-mode">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-light bg-primary text-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">YouTube M&V</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-controller="YouTube" asp-action="Index">Search</a>
+                        </li>
+                    </ul>
+                    <!-- Dark Mode Toggle Button -->
+                    <button id="darkModeToggle" class="dark-mode-btn">Dark Mode</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2024 - "YouTube M&V" developed by "MOHAMAD HAIQAL [AM2304013418]" <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+    <script>
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+
+        darkModeToggle.addEventListener('click', function () {
+            body.classList.toggle('dark-mode');
+            body.classList.toggle('light-mode');
+
+            // Update button text
+            if (body.classList.contains('dark-mode')) {
+                darkModeToggle.textContent = 'Light Mode';
+            } else {
+                darkModeToggle.textContent = 'Dark Mode';
+            }
+        });
+    </script>
+</body>
+</html>

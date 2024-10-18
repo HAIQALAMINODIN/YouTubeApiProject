@@ -1,0 +1,93 @@
+﻿@model List<YouTubeApiProject.Models.YouTubeVideoModel>
+
+<div class="container text-center mt-5">
+    <h2 class="display-4">Search Music or Videos</h2>
+
+    <!-- Search Form -->
+    <form asp-action="Search" method="post" class="d-flex justify-content-center mt-4">
+        <div class="input-group mb-3" style="max-width: 500px;">
+            <input type="text" name="query" class="form-control" placeholder="Search for ..." aria-label="Search" aria-describedby="search-button">
+            <button class="btn btn-primary" type="submit" id="search-button">
+                <i class="fas fa-search"></i> <!-- Font Awesome search icon -->
+            </button>
+        </div>
+    </form>
+</div>
+
+<!-- Video List -->
+@if (Model != null && Model.Any())
+{
+    <div class="container mt-5">
+        <div class="row">
+            @foreach (var video in Model)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 text-center">
+                        <img src="@video.ThumbnailUrl" class="card-img-top" alt="@video.Title">
+                        <div class="card-body">
+                            <h5 class="card-title">@video.Title</h5>
+                            <p class="card-text">@video.Description</p>
+                            <a href="@video.VideoUrl" target="_blank" class="btn watch-button">Watch</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}
+
+<style>
+    /* Center the form and use icon for search button */
+    .input-group {
+        max-width: 500px;
+    }
+
+    /* Styling the button for the search */
+    .btn-primary {
+        background-color: #007bff; /* Bootstrap primary color */
+        border: none;
+    }
+
+    /* Custom styling for Watch button */
+    .watch-button {
+        background-color: #343a40; /* Dark color same as navbar */
+        color: white; /* White font */
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+        .watch-button:hover {
+            background-color: #007bff; /* Change on hover to primary color */
+            color: white; /* Keep text white */
+        }
+
+    /* Styling the video cards */
+    .card {
+        border: none; /* Remove card borders */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for elegance */
+        border-radius: 10px;
+        overflow: hidden;
+        transition: transform 0.2s ease-in-out;
+    }
+
+        .card:hover {
+            transform: scale(1.05); /* Slight scale effect on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+    .card-title {
+        font-weight: bold;
+        font-size: 1.25rem;
+        margin-top: 10px;
+    }
+
+    .card-text {
+        font-size: 1rem;
+        color: #666;
+    }
+</style>
+
+<!-- Font Awesome CDN for search icon -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
